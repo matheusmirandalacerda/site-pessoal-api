@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', portfolioController.getPorfolio);
 router.get('/:id', portfolioController.getProjetoById);
-router.post('/', portfolioController.createPorjeto);
+router.post('/', portfolioController.createProjeto);
 router.put('/:id', portfolioController.updateProjeto);
 router.delete('/:id', portfolioController.deleteProjeto);
 

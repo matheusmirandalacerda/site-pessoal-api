@@ -11,7 +11,7 @@ exports.getProjetoById = async (req, res) => {
     res.json(projeto)
 };
 
-exports.createPorjeto = async (req, res) => {
+exports.createProjeto = async (req, res) => {
     const projeto = req.body;
     const newProjeto = await portfolioRepository.createProjeto(projeto);
     res.json(newProjeto)
