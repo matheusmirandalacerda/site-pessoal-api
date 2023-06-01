@@ -4,7 +4,7 @@ exports.getAllExperiencias = async (tipo) => {
   let query = "SELECT * FROM experiencias";
 
   if (tipo) {
-    query += `WHERE tipo = '${tipo}'`;
+    query += ` WHERE tipo = '${tipo}'`;
   }
 
   const result = await pool.query(query);
@@ -22,7 +22,7 @@ exports.getExperienciaById = async (id) => {
 exports.createExperiencia = async (experiencia) => {
   const result = await pool.query(
     `
-    INSERT INTO experiencias (titulo, tipo, descricao, anoInicio, anoFim) 
+    INSERT INTO experiencias (titulo, tipo, descricao, anoinicio, anofim) 
     VALUES ($1, $2, $3, $4, $5)
     RETURNING *
     `,
@@ -30,8 +30,8 @@ exports.createExperiencia = async (experiencia) => {
       experiencia.titulo,
       experiencia.tipo,
       experiencia.descricao,
-      experiencia.anoInicio,
-      experiencia.anoFim,
+      experiencia.anoinicio,
+      experiencia.anofim,
     ]
   );
   return result.rows[0];
@@ -41,7 +41,7 @@ exports.updateExperiencia = async (id, experiencia) => {
   const result = await pool.query(
     `
     UPDATE experiencias 
-    SET titulo = $1, tipo = $2, descricao = $3, anoInicio = $4, anoFim = $5
+    SET titulo = $1, tipo = $2, descricao = $3, anoinicio = $4, anofim = $5
     WHERE id = $6
     RETURNING *
     `,
@@ -49,8 +49,8 @@ exports.updateExperiencia = async (id, experiencia) => {
       experiencia.titulo,
       experiencia.tipo,
       experiencia.descricao,
-      experiencia.anoInicio,
-      experiencia.anoFim, 
+      experiencia.anoinicio,
+      experiencia.anofim, 
       id,
     ]
   );
