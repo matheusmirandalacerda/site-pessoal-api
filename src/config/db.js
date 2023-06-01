@@ -16,8 +16,8 @@ const initDatabase = async () => {
         titulo VARCHAR(255) NOT NULL,
         tipo VARCHAR(255) NOT NULL,
         descricao TEXT NOT NULL,
-        anoInicio INT NOT NULL,
-        anoFim INT
+        anoinicio INT NOT NULL,
+        anofim INT
         );
         `);
 
